@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.pyc
+
+# Environments
+.env
+.venv/
+
+# Vector database
+database/qdrant/
+
+# Large papers
+papers/*.pdf
+
+# OS files
+.DS_Store
+
+# Models/cache
+*.bin
+*.pt
+*.gguf
+
+# Logs
+*.log
