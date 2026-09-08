@@ -25,35 +25,29 @@ The current development focus is biodiversity and ecological research, including
 
 ## How It Works
 
-The SiderAI workflow follows a Retrieval-Augmented Generation approach.
+SiderAI follows a Retrieval-Augmented Generation (RAG) workflow.
 
 A scientific paper is first converted into machine-readable text and divided into smaller document chunks. These chunks are transformed into numerical representations (embeddings) and stored in a local Qdrant vector database.
 
 When a researcher asks a question, SiderAI searches the database for the most relevant sections of the document. The retrieved information is then provided as context to a local Ollama-based language model, which generates an answer grounded in the original scientific text.
 
-Scientific paper (PDF)
-|
-v
-Text extraction and preprocessing
-|
-v
-Document chunking
-|
-v
-Embedding generation
-|
-v
-Qdrant vector database
-|
-v
-Semantic retrieval
-|
-v
-Local LLM (Ollama)
-|
-v
-Scientific answer
-
+<p align="center">
+  <strong>Scientific paper (PDF)</strong><br>
+  ↓<br>
+  <strong>Text extraction and preprocessing</strong><br>
+  ↓<br>
+  <strong>Document chunking</strong><br>
+  ↓<br>
+  <strong>Embedding generation</strong><br>
+  ↓<br>
+  <strong>Qdrant vector database</strong><br>
+  ↓<br>
+  <strong>Semantic retrieval</strong><br>
+  ↓<br>
+  <strong>Local LLM (Ollama)</strong><br>
+  ↓<br>
+  <strong>Scientific answer</strong>
+</p>
 
 ## Current Capabilities
 
@@ -93,19 +87,23 @@ Create and activate a dedicated environment:
 conda create -n research_ai python=3.11
 conda activate research_ai
 
-Install required packages:
+Install the required packages:
+
 pip install -r requirements.txt
 
 Run a local language model using Ollama:
+
 ollama run qwen3:8b
 
 Create the document index:
+
 python rag/ingest.py
 
 Ask questions about indexed literature:
+
 python rag/ask.py
 
-ata Privacy
+Data Privacy
 SiderAI follows a local-first philosophy. Scientific documents, embeddings, and user queries remain on the local machine and do not need to be transferred to external AI services.
 This design enables researchers to experiment with AI-assisted literature analysis while maintaining control over their scientific data.
 Future Development
