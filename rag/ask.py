@@ -21,16 +21,7 @@ document_store = QdrantDocumentStore(
 
 
 # -------------------------
-# Ask question
-# -------------------------
-
-question = input(
-    "\nAsk SiderAI: "
-)
-
-
-# -------------------------
-# Embed question
+# Initialize embedder
 # -------------------------
 
 embedder = OllamaTextEmbedder(
@@ -38,34 +29,8 @@ embedder = OllamaTextEmbedder(
 )
 
 
-embedding_result = embedder.run(
-    text=question
-)
-
-
-query_embedding = embedding_result["embedding"]
-
-
-
 # -------------------------
-# Dynamic retrieval
-# -------------------------
-
-if (
-    "species" in question.lower()
-    or "taxa" in question.lower()
-    or "table" in question.lower()
-    or "list" in question.lower()
-):
-    top_k = 20
-
-else:
-    top_k = 5
-
-
-
-# -------------------------
-# Retrieve chunks
+# Initialize retriever
 # -------------------------
 
 retriever = QdrantEmbeddingRetriever(
@@ -73,58 +38,109 @@ retriever = QdrantEmbeddingRetriever(
 )
 
 
-results = retriever.run(
-    query_embedding=query_embedding,
-    top_k=top_k
-)
+# -------------------------
+# Interactive question loop
+# -------------------------
 
+while True:
 
-print("\n--- Retrieved documents ---")
-
-
-for i, doc in enumerate(results["documents"]):
-
-    print(
-        f"\nCHUNK {i+1}"
-    )
-
-    print(
-        doc.content[:500]
-    )
-
-    print(
-        "-------------------------"
+    question = input(
+        "\nAsk SiderAI (type exit to quit): "
     )
 
 
-
-# -------------------------
-# Prepare context
-# -------------------------
-
-context = "\n\n".join(
-    [
-        doc.content
-        for doc in results["documents"]
-    ]
-)
+    if question.lower() == "exit":
+        print("Closing SiderAI.")
+        break
 
 
 
-# -------------------------
-# Ask Qwen3
-# -------------------------
+    # -------------------------
+    # Embed question
+    # -------------------------
 
-response = chat(
+    embedding_result = embedder.run(
+        text=question
+    )
 
-    model="qwen3:8b",
 
-    messages=[
+    query_embedding = embedding_result["embedding"]
 
-        {
-            "role": "system",
 
-            "content": """
+
+    # -------------------------
+    # Dynamic retrieval
+    # -------------------------
+
+    if (
+        "species" in question.lower()
+        or "taxa" in question.lower()
+        or "table" in question.lower()
+        or "list" in question.lower()
+    ):
+        top_k = 20
+
+    else:
+        top_k = 5
+
+
+
+    # -------------------------
+    # Retrieve chunks
+    # -------------------------
+
+    results = retriever.run(
+        query_embedding=query_embedding,
+        top_k=top_k
+    )
+
+
+    print("\n--- Retrieved documents ---")
+
+
+    for i, doc in enumerate(results["documents"]):
+
+        print(
+            f"\nCHUNK {i+1}"
+        )
+
+        print(
+            doc.content[:500]
+        )
+
+        print(
+            "-------------------------"
+        )
+
+
+
+    # -------------------------
+    # Prepare context
+    # -------------------------
+
+    context = "\n\n".join(
+        [
+            doc.content
+            for doc in results["documents"]
+        ]
+    )
+
+
+
+    # -------------------------
+    # Ask Qwen3
+    # -------------------------
+
+    response = chat(
+
+        model="qwen3:8b",
+
+        messages=[
+
+            {
+                "role": "system",
+
+                "content": """
 
 You are SiderAI,
 a scientific literature extraction assistant.
@@ -143,13 +159,13 @@ Rules:
 - Ignore reference lists.
 
 """
-        },
+            },
 
 
-        {
-            "role": "user",
+            {
+                "role": "user",
 
-            "content": f"""
+                "content": f"""
 
 Context:
 
@@ -161,16 +177,15 @@ Question:
 {question}
 
 """
-        }
+            }
 
-    ]
+        ]
 
-)
+    )
 
 
+    print("\nSiderAI:")
 
-print("\nSiderAI:")
-
-print(
-    response["message"]["content"]
-)
+    print(
+        response["message"]["content"]
+    )
