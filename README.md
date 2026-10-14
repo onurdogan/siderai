@@ -190,3 +190,11 @@ All documents, embeddings, and queries stay on your local machine. Nothing is se
 
 Onur Doğan
 
+
+## About
+
+SiderAI started as a personal research tool to address a recurring challenge: scientific literature in ecology and environmental biology is rich in detail, but that detail is often buried across dozens of papers, tables, and supplementary files.
+
+The project is driven by a simple goal to make it easier for researchers to interact with their own literature, locally and privately, without relying on cloud-based services. As eDNA and metabarcoding research grows in scale and complexity, so does the need for reproducible, transparent tools that support the full research workflow.
+
+SiderAI is an early-stage and actively developing project. Contributions, feedback, and collaborations are welcome.
