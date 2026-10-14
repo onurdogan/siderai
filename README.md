@@ -31,7 +31,7 @@ Rather than replacing careful reading, SiderAI aims to support it by making it e
 SiderAI follows a simple RAG pipeline: your PDF is parsed, split into chunks, and stored as embeddings in a local Qdrant vector database. When you ask a question, the most relevant chunks are retrieved and passed to a local language model (via Ollama), which generates an answer based only on your documents — nothing leaves your machine.
 
 <p align="center">
-  <strong>Scientific paper (PDF)</strong><br>
+  <strong>Scientific paper (PDF, XLSX)</strong><br>
   ↓<br>
   <strong>Text extraction and preprocessing</strong><br>
   ↓<br>
