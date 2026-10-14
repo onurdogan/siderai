@@ -4,11 +4,11 @@ Local AI assistant for scientific literature analysis using Retrieval-Augmented 
 
 ## Overview
 
-SiderAI is a local AI assistant that helps researchers extract and explore information from scientific literature — without sending data to the cloud. It runs entirely on your own machine, making it suitable for unpublished manuscripts, sensitive datasets, and specialized scientific documents.
+SiderAI is a local AI assistant that helps researchers extract and explore information from scientific literature, without sending data to the cloud. It runs entirely on your own machine, making it suitable for unpublished manuscripts, sensitive datasets, and specialized scientific documents.
 
 It is built around a Retrieval-Augmented Generation (RAG) pipeline, combining local language models (via Ollama) with a semantic search layer to answer questions grounded in the actual content of your papers.
 
-SiderAI is being developed with ecological and environmental research in mind — particularly for workflows involving environmental DNA (eDNA), metabarcoding, biodiversity monitoring, and lake ecology.
+SiderAI is being developed with ecological and environmental research in mind, with a focus on workflows involving environmental DNA (eDNA), metabarcoding, biodiversity monitoring, and lake ecology.
 
 ## Screenshot
 
@@ -16,7 +16,7 @@ SiderAI is being developed with ecological and environmental research in mind �
 
 ## Motivation
 
-Environmental metabarcoding and eDNA studies generate large volumes of methods, metadata, and results that are difficult to navigate manually. Standards such as the [MIEM guidelines](https://doi.org/10.3897/mbmg.8.128689) highlight the importance of transparent, reproducible reporting — but locating specific information across publications remains time-consuming.
+Environmental metabarcoding and eDNA studies generate large volumes of methods, metadata, and results that are difficult to navigate manually. Standards such as the [MIEM guidelines](https://doi.org/10.3897/mbmg.8.128689) highlight the importance of transparent, reproducible reporting, but locating specific information across publications remains time-consuming.
 
 SiderAI is designed to help researchers:
 
@@ -24,7 +24,7 @@ SiderAI is designed to help researchers:
 * ask plain-language questions about workflow steps (e.g. extraction protocols, bioinformatic parameters),
 * and compare findings or metadata requirements across multiple publications.
 
-Rather than replacing careful reading, SiderAI aims to support it — making it easier to navigate dense scientific literature efficiently and reproducibly.
+Rather than replacing careful reading, SiderAI aims to support it by making it easier to navigate dense scientific literature efficiently and reproducibly.
 
 ## How It Works
 
