@@ -10,9 +10,15 @@ It is built around a Retrieval-Augmented Generation (RAG) pipeline, combining lo
 
 SiderAI is being developed with ecological and environmental research in mind, with a focus on workflows involving environmental DNA (eDNA), metabarcoding, biodiversity monitoring, and lake ecology.
 
-## Screenshot
+## Screenshots
 
-![SiderAI Screenshot](assets/screenshot.png)
+**Interface**
+
+![SiderAI Interface](assets/interface.png)
+
+**Analysis Result**
+
+![SiderAI Analysis Result](assets/analysis_result.png)
 
 ## Motivation
 
@@ -188,6 +194,5 @@ All documents, embeddings, and queries stay on your local machine. Nothing is se
 
 ## Author
 
-Dr. Onur Doğan
-
+Onur Doğan
 
