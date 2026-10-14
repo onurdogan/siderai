@@ -8,7 +8,7 @@ SiderAI is a local AI assistant that helps researchers extract and explore infor
 
 It is built around a Retrieval-Augmented Generation (RAG) pipeline, combining local language models (via Ollama) with a semantic search layer to answer questions grounded in the actual content of your papers.
 
-SiderAI is being developed with ecological and environmental research in mind, with a focus on workflows involving environmental DNA (eDNA), metabarcoding, biodiversity monitoring, and lake ecology.
+SiderAI is being developed with ecological and environmental research in mind, with a focus on workflows involving environmental DNA (eDNA), metabarcoding, and biodiversity monitoring.
 
 ## Screenshots
 
@@ -188,7 +188,7 @@ All documents, embeddings, and queries stay on your local machine. Nothing is se
 * Multi-paper knowledge bases for literature-wide comparisons
 * Automated extraction of reporting metadata (e.g. primers, extraction kits, bioinformatic parameters)
 * Support for MIEM and FAIR data standard compliance checking
-* Integration with biodiversity and lake ecology datasets
+* Integration with biodiversity datasets
 * Improved table and figure extraction
 * MCP-compatible interface for AI-ready research workflows
 
