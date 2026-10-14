@@ -10,6 +10,10 @@ Unlike cloud-based AI assistants, SiderAI is designed to keep scientific documen
 
 SiderAI combines local large language models (LLMs) through Ollama, semantic embedding models, and a Qdrant vector database to create a Retrieval-Augmented Generation (RAG) system. The assistant retrieves relevant parts of scientific documents and uses a local language model to generate context-aware answers based only on the provided literature.
 
+## Screenshot
+
+![SiderAI Screenshot](assets/screenshot.png)
+
 ## Motivation
 
 Scientific publications contain large amounts of structured and unstructured information, including taxonomic lists, methodological details, ecological observations, and experimental results. Extracting specific information from these documents manually can be time-consuming.
