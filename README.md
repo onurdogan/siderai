@@ -8,7 +8,7 @@ SiderAI is a local AI assistant that helps researchers extract and explore infor
 
 It is built around a Retrieval-Augmented Generation (RAG) pipeline, combining local language models (via Ollama) with a semantic search layer to answer questions grounded in the actual content of your papers.
 
-SiderAI is being developed with ecological and environmental research in mind, including lake ecology, biodiversity, eDNA, and metabarcoding workflows — with the goal of making AI tools more accessible and reproducible for the scientific research community.
+SiderAI is being developed with ecological and environmental research in mind — particularly for workflows involving environmental DNA (eDNA), metabarcoding, biodiversity monitoring, and lake ecology.
 
 ## Screenshot
 
@@ -16,13 +16,15 @@ SiderAI is being developed with ecological and environmental research in mind, i
 
 ## Motivation
 
-Finding specific information across scientific publications is time-consuming. SiderAI is designed to help researchers:
+Environmental metabarcoding and eDNA studies generate large volumes of methods, metadata, and results that are difficult to navigate manually. Standards such as the [MIEM guidelines](https://doi.org/10.3897/mbmg.8.128689) highlight the importance of transparent, reproducible reporting — but locating specific information across publications remains time-consuming.
 
-* extract results, methods, or species lists from papers,
-* compare findings across multiple publications,
-* and ask plain-language questions about their literature.
+SiderAI is designed to help researchers:
 
-Rather than replacing careful reading, SiderAI aims to support it — helping researchers navigate large bodies of literature more efficiently.
+* extract methods, results, taxa, or reporting criteria from papers,
+* ask plain-language questions about workflow steps (e.g. extraction protocols, bioinformatic parameters),
+* and compare findings or metadata requirements across multiple publications.
+
+Rather than replacing careful reading, SiderAI aims to support it — making it easier to navigate dense scientific literature efficiently and reproducibly.
 
 ## How It Works
 
@@ -55,9 +57,11 @@ SiderAI follows a simple RAG pipeline: your PDF is parsed, split into chunks, an
 * Organize publication metadata locally
 
 **Example questions:**
-* "Which taxa were added to Turkish inland water zooplankton fauna?"
+* "What extraction method was used in this study?"
+* "Which taxa were detected using metabarcoding?"
+* "What bioinformatic pipeline and parameters were reported?"
 * "Summarize the Results and Discussion sections."
-* "Find information about biodiversity patterns described in this paper."
+* "Does this study follow MIEM reporting guidelines?"
 
 ## Project Structure
 
@@ -175,11 +179,11 @@ All documents, embeddings, and queries stay on your local machine. Nothing is se
 
 ## Future Development
 
-* Improved table and figure extraction
-* Multi-paper knowledge bases
-* Automated species and taxon recognition
+* Multi-paper knowledge bases for literature-wide comparisons
+* Automated extraction of reporting metadata (e.g. primers, extraction kits, bioinformatic parameters)
+* Support for MIEM and FAIR data standard compliance checking
 * Integration with biodiversity and lake ecology datasets
-* Support for eDNA and metabarcoding workflows
+* Improved table and figure extraction
 * MCP-compatible interface for AI-ready research workflows
 
 ## Author
