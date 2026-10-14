@@ -4,11 +4,11 @@ Local AI assistant for scientific literature analysis using Retrieval-Augmented 
 
 ## Overview
 
-SiderAI is a local-first artificial intelligence assistant developed to support researchers in exploring, analyzing, and extracting information from scientific literature. The project aims to provide a private and reproducible alternative for literature-based research workflows by running the complete analysis pipeline locally.
+SiderAI is a local AI assistant that helps researchers extract and explore information from scientific literature — without sending data to the cloud. It runs entirely on your own machine, making it suitable for unpublished manuscripts, sensitive datasets, and specialized scientific documents.
 
-Unlike cloud-based AI assistants, SiderAI is designed to keep scientific documents, embeddings, and queries on the user's own machine. This approach is particularly useful for researchers working with unpublished manuscripts, sensitive datasets, or specialized scientific literature.
+It is built around a Retrieval-Augmented Generation (RAG) pipeline, combining local language models (via Ollama) with a semantic search layer to answer questions grounded in the actual content of your papers.
 
-SiderAI combines local large language models (LLMs) through Ollama, semantic embedding models, and a Qdrant vector database to create a Retrieval-Augmented Generation (RAG) system. The assistant retrieves relevant parts of scientific documents and uses a local language model to generate context-aware answers based only on the provided literature.
+SiderAI is being developed with ecological and environmental research in mind, including lake ecology, biodiversity, eDNA, and metabarcoding workflows — with the goal of making AI tools more accessible and reproducible for research communities like [GLEON](https://gleon.org).
 
 ## Screenshot
 
@@ -16,24 +16,17 @@ SiderAI combines local large language models (LLMs) through Ollama, semantic emb
 
 ## Motivation
 
-Scientific publications contain large amounts of structured and unstructured information, including taxonomic lists, methodological details, ecological observations, and experimental results. Extracting specific information from these documents manually can be time-consuming.
+Finding specific information across scientific publications is time-consuming. SiderAI is designed to help researchers:
 
-SiderAI was developed as a research-oriented tool to facilitate tasks such as:
+* extract results, methods, or species lists from papers,
+* compare findings across multiple publications,
+* and ask plain-language questions about their literature.
 
-* extracting taxonomic information from biodiversity papers,
-* locating specific methods or results within publications,
-* comparing information across scientific documents,
-* and supporting literature review workflows.
-
-The current development focus is biodiversity and ecological research, including applications in environmental DNA (eDNA), metabarcoding, and molecular ecology.
+Rather than replacing careful reading, SiderAI aims to support it — helping researchers navigate large bodies of literature more efficiently.
 
 ## How It Works
 
-SiderAI follows a Retrieval-Augmented Generation (RAG) workflow.
-
-A scientific paper is first converted into machine-readable text and divided into smaller document chunks. These chunks are transformed into numerical representations (embeddings) and stored in a local Qdrant vector database.
-
-When a researcher asks a question, SiderAI searches the database for the most relevant sections of the document. The retrieved information is then provided as context to a local Ollama-based language model, which generates an answer grounded in the original scientific text.
+SiderAI follows a simple RAG pipeline: your PDF is parsed, split into chunks, and stored as embeddings in a local Qdrant vector database. When you ask a question, the most relevant chunks are retrieved and passed to a local language model (via Ollama), which generates an answer based only on your documents — nothing leaves your machine.
 
 <p align="center">
   <strong>Scientific paper (PDF)</strong><br>
@@ -55,18 +48,13 @@ When a researcher asks a question, SiderAI searches the database for the most re
 
 ## Current Capabilities
 
-The current version of SiderAI supports:
+* Parse and index scientific papers (PDF)
+* Ask plain-language questions about your literature
+* Extract taxa, methods, results, and summaries
+* Semantic search across indexed documents
+* Organize publication metadata locally
 
-* scientific paper parsing and indexing,
-* semantic search across scientific documents,
-* local embedding generation,
-* retrieval-based question answering,
-* metadata organization for publications,
-* extraction of taxonomic information from biodiversity literature.
-
-Example questions include:
-
-* "Extract all taxa listed in Table 1."
+**Example questions:**
 * "Which taxa were added to Turkish inland water zooplankton fauna?"
 * "Summarize the Results and Discussion sections."
 * "Find information about biodiversity patterns described in this paper."
@@ -183,20 +171,16 @@ Both models run locally through Ollama.
 
 ## Data Privacy
 
-SiderAI follows a local-first philosophy. Scientific documents, embeddings, and user queries remain on the local machine and do not need to be transferred to external AI services.
-
-This design enables researchers to experiment with AI-assisted literature analysis while maintaining control over their scientific data.
+All documents, embeddings, and queries stay on your local machine. Nothing is sent to external servers.
 
 ## Future Development
 
-Future improvements will focus on expanding SiderAI into a more comprehensive scientific research assistant, including:
-
-* improved extraction of tables and figures,
-* automated species and taxon recognition,
-* multi-paper knowledge bases,
-* integration with biodiversity datasets,
-* support for environmental DNA and metabarcoding workflows,
-* and more advanced scientific document analysis.
+* Improved table and figure extraction
+* Multi-paper knowledge bases
+* Automated species and taxon recognition
+* Integration with biodiversity and lake ecology datasets
+* Support for eDNA and metabarcoding workflows
+* MCP-compatible interface for AI-ready research infrastructures
 
 ## Author
 
